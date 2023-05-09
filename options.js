@@ -1,5 +1,10 @@
+// The JavaScript shows the file directory structure with the text at the child node. 
+// The user can navigate and select the option to convert the text into voice. 
+// Define an object called options that contains various phrases and categories
 options = {
+    //The main Root acts as a main folder dir
     "Greetings": {
+        // The Text to display under the dir
         "Hello": "Hello",
         "Goodbye" : "Goodbye",
         "Good morning" : "Good morning",
@@ -50,14 +55,13 @@ options = {
             "How?" : "How?",
 
         }
-    }
-    ,
+    },
     "Daily Activites": {
         "Eat": "Eat",
         "Sleep" : "Sleep",
-        "" : "",
-        "" : "",
-        "" : "",
-        "" : ""
+        "Roam" : "Roam",
+        "Watch" : "Watch",
+        "Restrom" : "Restroom",
+        "Door" : "Door"
     }
 }
