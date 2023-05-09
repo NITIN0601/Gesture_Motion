@@ -1,11 +1,13 @@
+/* Flip the canvas horizontally */
 canvas {
     transform: scaleX(-1);
     /* fit to screen */
     width: 100%;
     height: 100%;
-    /* fit as the background to everything */
+    /* Set the canvas as the background to everything */
     position: fixed;
     top: 0;
     left: 0;
+    /* Set the z-index to be lower than everything else */
     z-index: -1;
 }
