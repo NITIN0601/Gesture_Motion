@@ -1,2 +1,4 @@
 # 3DHandPoseSelection
-Using TFJS to track hand poses and select things in a UI.
+Hand Gesture to speak 
+The Application is to target users without typing the data and usage of camera to do motions and the users might recieve the voice to communicate. 
+
