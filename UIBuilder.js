@@ -1,3 +1,4 @@
+// The UI Builder works on the Navigation Bar, Keys, and the Buttons in the main screen with the containers.
 // function to add buttons to the optionsContainer div
 function CreateButtons(optionsNavigator){
     console.log(optionsNavigator)
