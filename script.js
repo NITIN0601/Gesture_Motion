@@ -69,14 +69,43 @@ function drawPoint(ctx, point, color) {
 
 // Function that shows the current hand state on the canvas
 function showHandState(state) {
-  // Get the current hand state as a string
+  // get enum as string
   var gesture = state.getCurrentState()
-  // Set the font and fill style for the canvas
   canvasCtx.font = "30px Arial";
   canvasCtx.fillStyle = "red";
-  // Reverse the canvas in the x direction
+  // reverse in the x direction
   canvasCtx.scale(-1, 1);
-  // Draw the current hand state at the bottom right corner of the canvas
   canvasCtx.fillText(gesture, -canvasElement.width + 10, canvasElement.height - 10);
-  // Reverse the canvas back to its original orientation
-  canvas
+  canvasCtx.scale(-1, 1);
+}
+
+function init_hand_detection(params) {
+  const hands = new Hands({locateFile: (file) => {
+    console.log(`file: ${file}`);
+    return `https://cdn.jsdelivr.net/npm/@mediapipe/hands/${file}`;
+  }});
+  hands.setOptions({
+    maxNumHands: 2,
+    modelComplexity: 1,
+    minDetectionConfidence: 0.5,
+    minTrackingConfidence: 0.5
+  });
+  hands.onResults(onResults);
+  const camera = new Camera(videoElement, {
+    onFrame: async () => {
+      await hands.send({image: videoElement});
+    },
+  width: window.innerWidth,
+  height: window.innerHeight
+  });
+  camera.start();
+}
+
+// main function
+async function app() {
+  await init_hand_detection();
+}
+
+app();
+
+
